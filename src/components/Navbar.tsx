@@ -24,7 +24,7 @@ export default function Navbar() {
             </div>
 
             {/* toggler-meny */}
-            <div className="absolute top-3 right-4 cursor-pointer z-50">
+            <div className="absolute top-3 right-31 cursor-pointer z-50">
                 <div
                     className="bg-yellow-300 px-3 py-2 rounded-bl-[50px] shadow-lg flex items-center gap-2"
                     onClick={() => {
@@ -36,7 +36,7 @@ export default function Navbar() {
                         }
                     }}
                 >
-                    <img src="/search-icon.png" alt="Search" className="h-7 w-7" title="Menu" />
+                    <img src="/search-icon.png" alt="Search" className="h-10 w-10" title="Menu" />
                 </div>
 
                 {/* vid hover visas favorit och raiting */}
@@ -45,14 +45,14 @@ export default function Navbar() {
                         <img
                             src="/like-icon.webp"
                             alt="Favorites"
-                            className="h-9 w-9 bg-amber-100 p-1 rounded shadow hover:bg-amber-200 transition"
+                            className="h-12 w-12 bg-amber-100 p-1 rounded shadow hover:bg-amber-200 transition"
                             title="Favorites"
                             onClick={() => handleToggle("/favorites")}
                         />
                         <img
                             src="/raiting-icon.png"
                             alt="Rating"
-                            className="h-9 w-9 bg-amber-100 p-1 rounded shadow hover:bg-amber-200 transition"
+                            className="h-12 w-12 bg-amber-100 p-1 rounded shadow hover:bg-amber-200 transition"
                             title="Rating"
                             onClick={() => handleToggle("/ratings")}
                         />

@@ -1,41 +1,35 @@
 export default function Footer() {
     return (
-        <footer className="bg-black text-white mt-10 py-6 px-4">
-            <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+        <footer className=" bg-gray-200 text-black mt-3 py-2 px-2 z-50 relative">
+            <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2 text-sm">
 
-                {/* Vänster info */}
-                <div className="text-center md:text-left">
-                    <p className="font-bold">© {new Date().getFullYear()} Comic Vine Student App</p>
+                {/* API */}
+                <div className="text-center md:text-left gap-3">
+                    <p className="font-bold ">© {new Date().getFullYear()} Comic Vine Student App</p>
                     <a
                         href="https://comicvine.gamespot.com/api/"
                         target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 hover:text-yellow-400 transition"
-                    >
-                        <img src="/API-icon.png" alt="API" className="h-9 w-9" />
+                        rel="noopener noreferrer">
+                        <img src="/API-icon.png" alt="API" className="h-17 w-20 hover:bg-yellow-400 transition rounded-2xl p-3" />
                     </a>
                 </div>
 
-                {/* Höger länkar med ikoner */}
-                <div className="flex gap-6 items-center">
-
-
+                {/* Git och LinkIn */}
+                <div className="flex gap-4 items-center">
                     <a
-                        href="https://github.com/dittGitHub"
+                        href="https://github.com/Mejlisson"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 hover:text-yellow-400 transition"
-                    >
-                        <img src="/git-icon.png" alt="GitHub" className="h-10 w-23" />
+                        className="hover:bg-yellow-400 transition rounded-full p-1">
+                        <img src="/git-icon.png" alt="GitHub" className="h-15 w-30" />
                     </a>
 
                     <a
-                        href="https://linkedin.com/in/dittLinkedIn"
+                        href="https://linkedin.com/in/mejlisson/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 hover:text-yellow-400 transition"
-                    >
-                        <img src="/linkIn-icon.png" alt="LinkedIn" className="h-10 w-10" />
+                        className="hover:bg-yellow-400 transition rounded-full p-1">
+                        <img src="/linkIn-icon.png" alt="LinkedIn" className="h-13 w-15" />
                     </a>
                 </div>
             </div>
