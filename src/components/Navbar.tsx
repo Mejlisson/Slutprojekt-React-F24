@@ -14,7 +14,6 @@ export default function Navbar() {
         <nav className="relative bg-gray-200 h-20 px-4 flex items-center justify-between">
             {/* Logotypen */}
             <div className="bg-yellow-300 absolute top-0 left-20 h-[120px] w-[130px] place-items-center">
-                <img src="yellow.webp" alt="Bg" className="h-10 w-10" title="Bg" />
             </div>
             <div
                 className="absolute top-3 left-24 cursor-pointer"
