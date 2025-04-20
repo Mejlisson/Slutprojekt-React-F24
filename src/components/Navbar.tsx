@@ -11,12 +11,13 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="relative bg-gray-200 h-20 px-4 flex items-center justify-between">
+        <nav className="fixed top-0 left-0 w-full bg-gray-200 h-18 z-50 px-4 flex items-center justify-between">
+
             {/* Logotypen */}
-            <div className="bg-yellow-300 absolute top-0 left-20 h-[120px] w-[130px] place-items-center">
+            <div className="bg-yellow-300 absolute top-0 left-31 h-[130px] w-[130px] place-items-center">
             </div>
             <div
-                className="absolute top-3 left-24 cursor-pointer"
+                className="absolute top-5 left-35 cursor-pointer"
                 onClick={() => handleToggle("/")}
             >
                 <img src="/logo.png" alt="Logo" className="h-24 w-auto" />
