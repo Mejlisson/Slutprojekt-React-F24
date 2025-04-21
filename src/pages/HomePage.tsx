@@ -1,4 +1,5 @@
 import ForumActivity from "../components/homepage/ForumActivity";
+import IntroVideo from "../components/homepage/introVideo";
 import MainCard from "../components/homepage/MainCard";
 import PopularMovies from "../components/homepage/PopularMovie";
 import PopularSeries from "../components/homepage/PopularSerie";
@@ -7,32 +8,35 @@ import UpcomingEvents from "../components/homepage/UpcomingEvents";
 
 export default function HomePage() {
     return (
-        <div className="transform -skew-y-[4deg] bg-black p-6 mr-[100px] ml-[100px] mt-[75px] relative z-0">
-            <div className="skew-y-[1deg] mt-[22px] text-white space-y-6">
-                <div className="bg-gray-300 p-6">
-                    <MainCard />
-                </div>
-                <div className="transform -skew-y-[1deg] mt-[15px] h-[150px] grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <PopularMovies />
-                    <PopularSeries />
-                </div>
-
-                <div className="transform -skew-y-[1deg] mt-[110px]">
-                    <ForumActivity />
-                </div>
-
-                {/* Sista två rutor */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <UpcomingEvents />
+        <>
+            <IntroVideo />
+            <div className="transform bg-black p-2 relative z-10">
+                <div className=" mt-[22px] text-white">
+                    <div className="bg-gray-300 p-2 mr-20 ml-20 mt-2">
+                        <MainCard />
                     </div>
-                    <div>
-                        <RandomFacts />
+                    <div className="mr-20 ml-20 mt-2 h-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <PopularMovies />
+                        <PopularSeries />
                     </div>
-                </div>
 
+                    <div className="mr-20 ml-20 mt-2 h-auto gap-10">
+                        <ForumActivity />
+                    </div>
+
+                    {/* Sista två rutor */}
+                    <div className="mr-20 ml-20 mt-2 h-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div>
+                            <UpcomingEvents />
+                        </div>
+                        <div>
+                            <RandomFacts />
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </div>
+        </>
 
     );
 }
