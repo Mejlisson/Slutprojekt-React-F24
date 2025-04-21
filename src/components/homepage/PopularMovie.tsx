@@ -5,7 +5,7 @@ export default function PopularMovies() {
     return (
         <SectionBlock className="mt-4">
             <SeeMoreButton />
-            <h2 className="text-xl font-bold mb-2">Popular Movies</h2>
+            <h2 className="text-xl font-bold mb-1">Popular Movies</h2>
             <div className="h-32 bg-white flex items-center justify-center rounded">content here</div>
         </SectionBlock>
     );

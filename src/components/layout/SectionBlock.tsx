@@ -5,7 +5,7 @@ interface SectionBlockProps {
     className?: string;
 }
 
-export default function SectionBlocka({ children, className }: SectionBlockProps) {
+export default function SectionBlock({ children, className }: SectionBlockProps) {
     return (
         <div className={`bg-gray-300 p-4 shadow-md relative ${className}`}>
             <div className="bg-pink-400">{children}</div>
