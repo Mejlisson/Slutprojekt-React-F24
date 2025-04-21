@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { fetchMainComic } from "../../api/comicVine";
 
-interface Comic {
-    name: string;
-    image: { medium_url: string };
-    deck: string;
+type Comic = {
+    name: string; //Name of the series
+    image: string; //Main image of the series
+    deck: string; //Brief summary of the series
 }
 
 export default function MainCard() {
