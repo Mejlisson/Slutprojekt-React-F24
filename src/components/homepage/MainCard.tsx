@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchMainComic } from "../api/comicVine";
+import { fetchMainComic } from "../../api/comicVine";
 
 interface Comic {
     name: string;
