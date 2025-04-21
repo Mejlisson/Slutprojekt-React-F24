@@ -10,11 +10,11 @@ export default function HomePage() {
                 <div className="bg-gray-300 p-6">
                     <MainCard />
                 </div>
-                <div className="transform -skew-y-[1deg] mt-[25px] h-[150px] w-[1000px] grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="transform -skew-y-[1deg] mt-[15px] h-[150px] grid grid-cols-1 md:grid-cols-2 gap-6">
                     <PopularMovies />
                     <PopularSeries />
                 </div>
-                <div className="transform -skew-y-[1deg] mt-[50px] ">
+                <div className="transform -skew-y-[1deg] mt-[110px]">
                     <ForumActivity />
                 </div>
 
@@ -27,7 +27,6 @@ export default function HomePage() {
                         Random Comic Facts
                     </div>
                 </div>
-
             </div>
         </div>
     );
