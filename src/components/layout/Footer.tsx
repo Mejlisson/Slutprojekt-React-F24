@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
-        <footer className=" bg-gray-200 text-black mt-3 py-2 px-2 z-50 relative">
-            <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2 text-sm">
+        <footer className="bg-gray-200 text-black py-2 px-2 z-50 relative">
+            <div className="w-auto h-18 mx-auto flex flex-col md:flex-row justify-between items-center gap-2 text-sm">
 
                 {/* API */}
                 <div className="text-center md:text-left gap-3">
