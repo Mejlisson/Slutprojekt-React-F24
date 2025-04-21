@@ -11,22 +11,22 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="fixed top-0 left-0 w-full bg-gray-200 h-18 z-50 px-4 flex items-center justify-between">
+        <nav className="fixed top-0 left-0 w-full bg-gray-200 h-20 z-50 px-4 flex items-center justify-between">
 
             {/* Logotypen */}
-            <div className="bg-yellow-300 absolute top-0 left-31 h-[130px] w-[130px] place-items-center">
+            <div className="bg-yellow-300 absolute top-0 left-4 sm:left-10 h-[100px] sm:h-[130px] w-[100px] sm:w-[130px] place-items-center">
             </div>
             <div
-                className="absolute top-5 left-35 cursor-pointer"
+                className="absolute top-2 left-6 sm:top-5 sm:left-14 cursor-pointer"
                 onClick={() => handleToggle("/")}
             >
-                <img src="/logo.png" alt="Logo" className="h-24 w-auto" />
+                <img src="/logo.png" alt="Logo" className="h-20 w-auto sm:h-24" />
             </div>
 
             {/* toggler-meny */}
-            <div className="absolute top-3 right-31 cursor-pointer z-50">
+            <div className="absolute top-2 right-6 sm:top-3 sm:right-10 cursor-pointer z-50">
                 <div
-                    className="bg-yellow-300 px-3 py-2 rounded-bl-[50px] shadow-lg flex items-center gap-2"
+                    className="bg-yellow-300 px-2 py-1 sm:px-3 sm:py-2 rounded-bl-[40px] sm:rounded-bl-[50px] shadow-lg flex items-center gap-2"
                     onClick={() => {
                         if (showOptions) {
                             navigate("/search");
@@ -36,7 +36,7 @@ export default function Navbar() {
                         }
                     }}
                 >
-                    <img src="/search-icon.png" alt="Search" className="h-10 w-10" title="Menu" />
+                    <img src="/search-icon.png" alt="Search" className="h-8 w-8 sm:h-10 sm:w-10" title="Menu" />
                 </div>
 
                 {/* vid hover visas favorit och raiting */}
