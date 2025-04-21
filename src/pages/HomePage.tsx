@@ -2,6 +2,8 @@ import ForumActivity from "../components/homepage/ForumActivity";
 import MainCard from "../components/homepage/MainCard";
 import PopularMovies from "../components/homepage/PopularMovie";
 import PopularSeries from "../components/homepage/PopularSerie";
+import RandomFacts from "../components/homepage/RandomFacts";
+import UpcomingEvents from "../components/homepage/UpcomingEvents";
 
 export default function HomePage() {
     return (
@@ -14,20 +16,23 @@ export default function HomePage() {
                     <PopularMovies />
                     <PopularSeries />
                 </div>
+
                 <div className="transform -skew-y-[1deg] mt-[110px]">
                     <ForumActivity />
                 </div>
 
                 {/* Sista två rutor */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="bg-gray-300 p-4 text-black text-center rounded">
-                        Upcoming Comic Events
+                    <div>
+                        <UpcomingEvents />
                     </div>
-                    <div className="bg-gray-300 p-4 text-black text-center rounded">
-                        Random Comic Facts
+                    <div>
+                        <RandomFacts />
                     </div>
                 </div>
+
             </div>
         </div>
+
     );
 }
