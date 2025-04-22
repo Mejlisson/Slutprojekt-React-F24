@@ -1,4 +1,4 @@
-const API_KEY = "6a35331837c8797a2a76f29acffb53fea43710f";
+const API_KEY = "";
 const BASE_URL = "https://comicvine.gamespot.com/api";
 
 export async function fetchMainComic() {

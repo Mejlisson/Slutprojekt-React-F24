@@ -10,7 +10,7 @@ export default function HomePage() {
     return (
         <>
             <IntroVideo />
-            <div className="transform bg-black p-2 relative z-10">
+            <div className="transform bg-gray-200 p-2 relative z-10">
                 <div className=" mt-[22px] text-white">
                     <div className="bg-gray-300 p-2 mr-20 ml-20 mt-2">
                         <MainCard />
