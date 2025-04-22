@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { fetchMainComic } from "../../api/comicVine";
 
 type Comic = {
-    name: string; //Name of the series
-    image: string; //Main image of the series
-    deck: string; //Brief summary of the series
+    volume: { name: string; } //Name of the series
+    image: { url: string }; //Main image of the series
+    description: string; //Brief summary of the series
 }
 
 export default function MainCard() {
@@ -30,12 +30,12 @@ export default function MainCard() {
         <div className="bg-black">
             <div className="bg-gray-300 text-black p-6 skew-y-3 text-center">
                 <img
-                    src={comic.image.medium_url}
-                    alt={comic.name}
+                    src={comic.image.url}
+                    alt={comic.volume.name}
                     className="mx-auto rounded shadow-xl max-h-96 object-contain"
                 />
-                <h2 className="text-xl font-bold mt-4">{comic.name}</h2>
-                <p className="mt-2 text-sm">{comic.deck}</p>
+                <h2 className="text-xl font-bold mt-4">{comic.volume.name}</h2>
+                <p className="mt-2 text-sm">{comic.description}</p>
             </div>
         </div>
     );
