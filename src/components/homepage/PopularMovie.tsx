@@ -1,4 +1,4 @@
-import SectionBlock from "../layout/SectionBlock";
+import SectionBlock from "../buttons/SectionBlock";
 import SeeMoreButton from "./SeeMoreButton";
 
 export default function PopularMovies() {

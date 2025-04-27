@@ -1,5 +1,5 @@
 import ForumActivity from "../components/homepage/ForumActivity";
-import IntroVideo from "../components/homepage/introVideo";
+import IntroVideo from "../components/homepage/IntroVideo";
 import MainCard from "../components/homepage/MainCard";
 import PopularMovies from "../components/homepage/PopularMovie";
 import PopularSeries from "../components/homepage/PopularSerie";

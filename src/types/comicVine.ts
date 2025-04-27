@@ -1,0 +1,1 @@
+//Typning för sökresultaten (interface)
