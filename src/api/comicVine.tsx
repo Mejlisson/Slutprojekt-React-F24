@@ -1,8 +1,7 @@
 const API_KEY = "";
-const BASE_URL = "https://comicvine.gamespot.com/api";
 
 export async function fetchMainComic() {
-    const url = `/api/search/?api_key=${API_KEY}&format=json&query=wolverine&resources=volume&limit=10&sort=start_year:desc`;
+    const url = `/api/search/?api_key=${API_KEY}&format=json&query=issue`;
 
     const response = await fetch(url);
 

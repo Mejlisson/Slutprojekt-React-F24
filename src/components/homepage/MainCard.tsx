@@ -1,24 +1,38 @@
 import { useEffect, useState } from "react";
 import { fetchMainComic } from "../../api/comicVine";
 
-type Comic = {
-    volume: { name: string; } //Name of the series
-    image: { url: string }; //Main image of the series
-    description: string; //Brief summary of the series
-}
+type ComicApiItem = {
+    image?: {
+        super_url?: string; //Main image of the series
+    };
+    volume?: {
+        name?: string;  //Name of the series
+    };
+    description?: string; //Brief summary of the series
+};
 
 export default function MainCard() {
-    const [comic, setComic] = useState<Comic | null>(null);
+    const [comic, setComic] = useState<ComicApiItem | null>(null);
 
     useEffect(() => {
-        const loadData = async () => {
-            const result = await fetchMainComic();
-            setComic(result);
+        const getComic = async () => {
+            try {
+                const data: ComicApiItem = await fetchMainComic();
+
+                if (data.image?.super_url && data.volume?.name) {
+                    setComic(data);
+                } else {
+                    console.warn("Saknar img eller namn:", data);
+                }
+            } catch (error) {
+                console.error("Fel vid hämtning:", error);
+            }
         };
-        loadData();
+
+        getComic();
     }, []);
 
-    {/*Loading*/ }
+    //Loading
     if (!comic) {
         return (
             <div className="flex justify-center items-center h-[150px]">
@@ -26,17 +40,26 @@ export default function MainCard() {
             </div>
         );
     }
+
     return (
-        <div className="bg-black">
-            <div className="bg-gray-300 text-black p-6 skew-y-3 text-center">
+        <div className="">
+            <div className="bg-gray-300  p-6 flex gap-6 items-start">
                 <img
-                    src={comic.image.url}
-                    alt={comic.volume.name}
-                    className="mx-auto rounded shadow-xl max-h-96 object-contain"
+                    src={comic.image?.super_url}
+                    alt={comic.volume?.name}
+                    className="w-48 rounded shadow-xl object-contain"
                 />
-                <h2 className="text-xl font-bold mt-4">{comic.volume.name}</h2>
-                <p className="mt-2 text-sm">{comic.description}</p>
+                <div className="flex flex-col">
+                    <h2 className="text-5xl   text-black font-bold">{comic.volume?.name}</h2>
+                    <p
+                        className="mt-2 text-sm text-black"
+                        dangerouslySetInnerHTML={{
+                            __html: comic.description || "<em>Ingen beskrivning tillgänglig.</em>",
+                        }}
+                    />
+                </div>
             </div>
         </div>
     );
+
 }
