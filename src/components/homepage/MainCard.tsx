@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchMainComic } from "../../api/MainCardApi";
+import { fetchMainComic } from "../../api/MainCardAPI";
 
 type ComicApiItem = {
     image?: {
@@ -32,7 +32,7 @@ export default function MainCard() {
         getComic();
     }, []);
 
-    //Loading
+    //Loading Batman
     if (!comic) {
         return (
             <div className="flex justify-center items-center h-[150px]">

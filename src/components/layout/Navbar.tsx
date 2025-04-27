@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSearch } from "../../context/SearchContext"; // 🆕 Import för search overlay
+import { useSearch } from "../../context/SearchContext";
 
 export default function Navbar() {
     const navigate = useNavigate();
@@ -41,7 +41,7 @@ export default function Navbar() {
                     <img src="/search-icon.png" alt="Search" className="h-8 w-8 sm:h-10 sm:w-10" title="Menu" />
                 </div>
 
-                {/* vid hover visas favorit och rating */}
+                {/* vid klick visas favorit och rating */}
                 {showOptions && (
                     <div className="absolute top-full right-0 mt-2 flex flex-col items-end gap-2 z-50">
                         <img

@@ -18,7 +18,7 @@ function App() {
       <SearchProvider>
         <Navbar />
 
-        <SearchOverlay /> {/* täcker över den sidan man är på */}
+        <SearchOverlay />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/details/:id" element={<DetailPage />} />
@@ -27,7 +27,6 @@ function App() {
           <Route path="/favorites" element={<FavoritePage />} />
           <Route path="/ratings" element={<RatingPage />} />
         </Routes>
-
         <Footer />
       </SearchProvider>
     </BrowserRouter>

@@ -5,7 +5,8 @@ type SearchContextType = {
     setShowSearch: (show: boolean) => void;
 };
 
-const SearchContext = createContext<SearchContextType | undefined>(undefined); //en global plats för att lagra "ska search-overlay visas eller inte?"
+//en global plats för att lagra "ska search-overlay visas/inte?"
+const SearchContext = createContext<SearchContextType | undefined>(undefined);
 
 
 //en serachProvider som gör det möjligt för komponenter att läsa och ändra showSearch
