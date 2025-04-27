@@ -1,5 +1,5 @@
-import SectionBlock from "../buttons/SectionBlock";
-import SeeMoreButton from "./SeeMoreButton";
+import SectionBlock from "../layout/SectionBlock";
+import SeeMoreButton from "../buttons/SeeMoreButton";
 
 export default function PopularMovies() {
     return (
