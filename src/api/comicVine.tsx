@@ -1,4 +1,4 @@
-const API_KEY = "";
+const API_KEY = "a6a35331837c8797a2a76f29acffb53fea43710f";
 
 export async function fetchMainComic() {
     const url = `/api/search/?api_key=${API_KEY}&format=json&query=issue`;
