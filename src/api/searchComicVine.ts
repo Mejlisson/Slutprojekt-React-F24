@@ -1,4 +1,4 @@
-import API_KEY from "./apiKeu";
+import API_KEY from "./apiKey";
 
 export async function searchComicVine(query: string) {
     const url = `/api/search/?api_key=${API_KEY}&format=json&query=${query}`;

@@ -1,16 +1,38 @@
 import { useState } from "react";
 import { useSearch } from "../../context/SearchContext";
+import { searchComicVine } from "../../api/searchComicVine";
 
 export default function SearchOverlay() {
-    const { showSearch, setShowSearch } = useSearch(); //hämtar global state från SearchContext
-    const [query, setQuery] = useState(""); //sparar det user söker på
+    const { showSearch, setShowSearch } = useSearch(); // hämtar global state från SearchContext
+    const [query, setQuery] = useState("");             // sparar det user söker på
+    const [searchResults, setSearchResults] = useState([]); // sparar sökresultat
+    const [loading, setLoading] = useState(false);          // visar loading spinner
+    const [error, setError] = useState("");                 // hanterar felmeddelande
 
     if (!showSearch) return null;
 
-    const handleSearch = () => {
-        console.log("Searching for:", query);
-        // API anrop för att hämta data baserat på query
+    const handleSearch = async () => {
+        if (!query.trim()) return; // Om input är tom gör ingenting
+
+        setLoading(true);
+        setError("");
+        setSearchResults([]);
+
+        try {
+            const results = await searchComicVine(query);
+            if (results.length === 0) {
+                setError("No results found.");
+            } else {
+                setSearchResults(results);
+            }
+        } catch (err) {
+            console.error(err);
+            setError("Something went wrong. Please try again.");
+        } finally {
+            setLoading(false);
+        }
     };
+
 
     return (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-70 flex items-center justify-center">
