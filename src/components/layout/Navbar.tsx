@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSearch } from "../../context/SearchContext"; // 🆕 Import för search overlay
 
 export default function Navbar() {
     const navigate = useNavigate();
+    const { setShowSearch } = useSearch(); //Hook från SearchContext
     const [showOptions, setShowOptions] = useState(false);
 
     const handleToggle = (path: string) => {
@@ -29,7 +31,7 @@ export default function Navbar() {
                     className="bg-yellow-300 px-2 py-1 sm:px-3 sm:py-2 rounded-bl-[40px] sm:rounded-bl-[50px] shadow-lg flex items-center gap-2"
                     onClick={() => {
                         if (showOptions) {
-                            navigate("/search");
+                            setShowSearch(true); // SearchOverlay
                             setShowOptions(false);
                         } else {
                             setShowOptions(true);
@@ -39,7 +41,7 @@ export default function Navbar() {
                     <img src="/search-icon.png" alt="Search" className="h-8 w-8 sm:h-10 sm:w-10" title="Menu" />
                 </div>
 
-                {/* vid hover visas favorit och raiting */}
+                {/* vid hover visas favorit och rating */}
                 {showOptions && (
                     <div className="absolute top-full right-0 mt-2 flex flex-col items-end gap-2 z-50">
                         <img

@@ -1,13 +1,14 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 
 type SearchContextType = {
-    showSearch: boolean;
+    showSearch: boolean; //är sökinput öppen?
     setShowSearch: (show: boolean) => void;
 };
 
-//initialt värde undefined
-const SearchContext = createContext<SearchContextType | undefined>(undefined);
+const SearchContext = createContext<SearchContextType | undefined>(undefined); //en global plats för att lagra "ska search-overlay visas eller inte?"
 
+
+//en serachProvider som gör det möjligt för komponenter att läsa och ändra showSearch
 export function SearchProvider({ children }: { children: ReactNode }) {
     const [showSearch, setShowSearch] = useState(false);
 
@@ -18,7 +19,7 @@ export function SearchProvider({ children }: { children: ReactNode }) {
     );
 }
 
-// Custom hook för context
+// ⭐Custom hook som gör det enkelt för komponenter att läsa och ändra showSearch
 export function useSearch() {
     const context = useContext(SearchContext);
     if (context === undefined) {

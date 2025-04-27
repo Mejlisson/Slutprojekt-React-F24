@@ -1,19 +1,18 @@
 import { useState } from "react";
 import { useSearch } from "../../context/SearchContext";
-import { searchComicVine } from "../../api/searchComicVine";
+import { searchComicVine } from "../../api/searchApi";
 
 export default function SearchOverlay() {
-    const { showSearch, setShowSearch } = useSearch(); // hämtar global state från SearchContext
-    const [query, setQuery] = useState("");             // sparar det user söker på
-    const [searchResults, setSearchResults] = useState([]); // sparar sökresultat
-    const [loading, setLoading] = useState(false);          // visar loading spinner
-    const [error, setError] = useState("");                 // hanterar felmeddelande
+    const { showSearch, setShowSearch } = useSearch();
+    const [query, setQuery] = useState("");
+    const [searchResults, setSearchResults] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
 
     if (!showSearch) return null;
 
     const handleSearch = async () => {
-        if (!query.trim()) return; // Om input är tom gör ingenting
-
+        if (!query.trim()) return;
         setLoading(true);
         setError("");
         setSearchResults([]);
@@ -32,15 +31,12 @@ export default function SearchOverlay() {
             setLoading(false);
         }
     };
-
-
     return (
-        <div className="fixed inset-0 z-50 bg-black bg-opacity-70 flex items-center justify-center">
+        <div className="fixed inset-0 z-50 bg-gray-300 bg-opacity-10 flex items-center justify-center">
             <div
-                className="relative w-[90%] max-w-2xl p-6 rounded shadow-xl bg-center bg-cover"
-                style={{ backgroundImage: "url('/bg-forSearch.jpg')" }}
-            >
-                <div className="bg-white rounded-full shadow-md flex items-center p-2 px-4">
+                className="relative w-[600px] h-[400px] rounded shadow-xl bg-center bg-cover bg-no-repeat flex flex-col items-center justify-center gap-4 p-4">
+                {/* Input */}
+                <div className="bg-white rounded-full shadow-md flex items-center p-2 px-4 w-full">
                     <input
                         type="text"
                         value={query}
@@ -48,15 +44,49 @@ export default function SearchOverlay() {
                         placeholder="Search for comics, characters, creators..."
                         className="flex-1 outline-none text-sm p-2"
                     />
-                    <button onClick={handleSearch} className="ml-2">
+                    <button onClick={handleSearch} className="ml-2 cursor-pointer scale-200 transition-transform">
                         <img src="/search-icon.png" alt="Search" className="h-5 w-5" />
                     </button>
                 </div>
 
-                {/* Stäng overlay */}
+                {loading && (
+                    <div className="flex justify-center items-center mt-4">
+                        <img src="/searchLoading.gif" alt="Loading..." className="h-60 w-60" />
+                    </div>
+                )}
+
+
+                {error && <p className="text-red-500">{error}</p>}
+
+
+                {searchResults.length > 0 && (
+                    <ul className="bg-white rounded p-3 w-full h-[300px] overflow-y-auto space-y-2">
+                        {searchResults.map((result: any, index: number) => (
+                            <li
+                                key={index}
+                                className="flex items-center gap-4 rounded hover:bg-gray-100 transition cursor-pointer"
+                            >
+                                {/* Mini-bild */}
+                                <img
+                                    src={result.image?.icon_url || "/default-thumbnail.jpg"}
+                                    alt={result.name}
+                                    className="h-12 w-12 object-cover border"
+                                />
+
+                                {/* search resultat */}
+                                <div className="text-black font-medium">
+                                    {result.name || "No name"}
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+
+                )}
+
+                {/* Stäng knappen */}
                 <button
                     onClick={() => setShowSearch(false)}
-                    className="absolute top-2 right-2 text-white text-2xl font-bold"
+                    className="absolute -top-3 right-0 text-red-500 text-2xl cursor-pointer transition-transform hover:font-bold animate-pulse"
                 >
                     ✕
                 </button>
