@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useSearch } from "../../context/SearchContext";
 import { searchComicVine } from "../../api/searchApi";
 
@@ -59,29 +60,28 @@ export default function SearchOverlay() {
                 {error && <p className="text-red-500">{error}</p>}
 
 
-                {searchResults.length > 0 && (
-                    <ul className="bg-white rounded p-3 w-full h-[300px] overflow-y-auto space-y-2">
-                        {searchResults.map((result: any, index: number) => (
-                            <li
-                                key={index}
-                                className="flex items-center gap-4 rounded hover:bg-gray-100 transition cursor-pointer"
+                <ul className="rounded p-3 w-full h-[300px] overflow-y-auto space-y-[1px]">
+                    {searchResults.map((result: any, index: number) => (
+                        <li key={index} className="bg-white">
+                            <Link
+                                to={`/details/${result.id}?resource=${result.resource_type}`}
+                                onClick={() => setShowSearch(false)}
+                                className="flex items-center gap-4 rounded hover:bg-yellow-100 transition p-2"
                             >
-                                {/* Mini-bild */}
                                 <img
                                     src={result.image?.icon_url || "/default-thumbnail.jpg"}
                                     alt={result.name}
                                     className="h-12 w-12 object-cover border"
                                 />
-
-                                {/* search resultat */}
                                 <div className="text-black font-medium">
-                                    {result.name || "No name"}
+                                    <p>{result.name || result.title || "No name"}</p>
+                                    <p className="text-xs text-gray-500">{result.resource_type}</p>
                                 </div>
-                            </li>
-                        ))}
-                    </ul>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
 
-                )}
 
                 {/* Stäng knappen */}
                 <button
