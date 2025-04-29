@@ -25,4 +25,4 @@ dist-ssr
 
 *.env.local
 
-*apiKey.ts*
+const API_KEY = ""
