@@ -1,4 +1,4 @@
-export interface FavoriteItem {
+export type FavoriteItem = {
     id: number;
     name: string;
     type: 'COMIC' | 'MOVIE' | 'HERO' | 'CREATOR';
@@ -6,7 +6,7 @@ export interface FavoriteItem {
     rating: number;
 }
 
-export interface FavoriteState {
+export type FavoriteState = {
     favorites: FavoriteItem[];
 }
 

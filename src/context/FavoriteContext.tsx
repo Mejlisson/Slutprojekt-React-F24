@@ -4,6 +4,7 @@ import { FavoriteItem, FavoriteState, FavoriteAction } from './contextTypes';
 const initialState: FavoriteState = {
     favorites: [],
 };
+/// Reducer function to manage the favorite items(add/remove controls/handles via id)
 function favoriteReducer(state: FavoriteState, action: FavoriteAction): FavoriteState {
     switch (action.type) {
         case 'ADD_FAVORITE':
@@ -17,6 +18,8 @@ function favoriteReducer(state: FavoriteState, action: FavoriteAction): Favorite
             return state;
     }
 }
+
+/// Create a context for the favorite items
 const FavoriteContext = createContext<{
     state: FavoriteState;
     dispatch: React.Dispatch<FavoriteAction>;
