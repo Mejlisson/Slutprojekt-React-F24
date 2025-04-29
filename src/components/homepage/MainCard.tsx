@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { fetchMainComic } from "../../api/MainCardAPI";
+import { fetchMainComic } from "../../api/MainCardApi";
 
-type ComicApiItem = {
+
+export type ComicApiItem = {
     image?: {
         super_url?: string; //Main image of the series
     };
