@@ -11,24 +11,28 @@ import RatingPage from "./pages/RatingPage";
 
 import SearchOverlay from "./components/search/SearchOverlay";
 import { SearchProvider } from "./context/SearchContext";
+import { FavoriteProvider } from "./context/FavoriteContext"; // 👈 lägg till denna!
 
 function App() {
   return (
     <BrowserRouter>
-      <SearchProvider>
-        <Navbar />
+      <FavoriteProvider>
+        <SearchProvider>
+          <Navbar />
+          <SearchOverlay />
 
-        <SearchOverlay />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/details/:id" element={<DetailPage />} />
-          <Route path="/characters" element={<CharacterPage />} />
-          <Route path="/creators" element={<CreatorPage />} />
-          <Route path="/favorites" element={<FavoritePage />} />
-          <Route path="/ratings" element={<RatingPage />} />
-        </Routes>
-        <Footer />
-      </SearchProvider>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/details/:id" element={<DetailPage />} />
+            <Route path="/characters" element={<CharacterPage />} />
+            <Route path="/creators" element={<CreatorPage />} />
+            <Route path="/favorites" element={<FavoritePage />} />
+            <Route path="/ratings" element={<RatingPage />} />
+          </Routes>
+
+          <Footer />
+        </SearchProvider>
+      </FavoriteProvider>
     </BrowserRouter>
   );
 }
