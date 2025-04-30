@@ -80,10 +80,8 @@ export default function SearchOverlay() {
                             </Link>
                         </li>
                     ))}
+
                 </ul>
-
-
-                {/* Stäng knappen */}
                 <button
                     onClick={() => setShowSearch(false)}
                     className="absolute -top-3 right-0 text-red-500 text-2xl cursor-pointer transition-transform hover:font-bold animate-pulse"
@@ -91,6 +89,6 @@ export default function SearchOverlay() {
                     ✕
                 </button>
             </div>
-        </div>
+        </div >
     );
 }

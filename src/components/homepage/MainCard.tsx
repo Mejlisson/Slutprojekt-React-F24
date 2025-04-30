@@ -10,6 +10,9 @@ export type ComicApiItem = {
         name?: string;  //Name of the series
     };
     description?: string; //Brief summary of the series
+    id: number;
+    name?: string;
+    title?: string;
 };
 
 export default function MainCard() {
