@@ -18,22 +18,24 @@ function App() {
     <BrowserRouter>
       <FavoriteProvider>
         <SearchProvider>
-          <Navbar />
-          <SearchOverlay />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/details/:id" element={<DetailPage />} />
-            <Route path="/characters" element={<CharacterPage />} />
-            <Route path="/creators" element={<CreatorPage />} />
-            <Route path="/favorites" element={<FavoritePage />} />
-            <Route path="/ratings" element={<RatingPage />} />
-          </Routes>
-
+          <div className="min-h-screen flex flex-col">
+            <Navbar />
+            <SearchOverlay />
+            <main className="flex-grow">
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/details/:id" element={<DetailPage />} />
+                <Route path="/characters" element={<CharacterPage />} />
+                <Route path="/creators" element={<CreatorPage />} />
+                <Route path="/favorites" element={<FavoritePage />} />
+                <Route path="/ratings" element={<RatingPage />} />
+              </Routes>
+            </main>
+            <Footer />
+          </div>
         </SearchProvider>
       </FavoriteProvider>
-      <Footer />
     </BrowserRouter>
   );
 }
-
 export default App;

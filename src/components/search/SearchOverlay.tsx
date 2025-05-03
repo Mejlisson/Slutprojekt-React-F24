@@ -2,8 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSearch } from "../../context/SearchContext";
 import { searchComicVine } from "../../api/fetch/searchApi";
-
-
 export default function SearchOverlay() {
     const { showSearch, setShowSearch } = useSearch();
     const [query, setQuery] = useState("");
@@ -37,7 +35,7 @@ export default function SearchOverlay() {
         <div className="fixed inset-0 z-50 bg-gray-600/85 flex items-center justify-center">
             <div
                 className="relative w-[600px] h-[400px] rounded bg-center bg-cover bg-no-repeat flex flex-col items-center justify-center gap-4 p-4">
-                {/* Input */}
+                {/* Sök-input */}
                 <div className="bg-white rounded-full shadow-md flex items-center p-2 px-4 w-full">
                     <input
                         type="text"
@@ -67,7 +65,7 @@ export default function SearchOverlay() {
                             <Link
                                 to={`/details/${result.id}?resource=${result.resource_type}`}
                                 onClick={() => setShowSearch(false)}
-                                className="flex items-center gap-4 rounded hover:bg-yellow-100 transition p-2"
+                                className="flex items-center gap-4 rounded hover:bg-yellow-200 transition p-2"
                             >
                                 <img
                                     src={result.image?.icon_url || "/default-thumbnail.jpg"}
@@ -81,7 +79,6 @@ export default function SearchOverlay() {
                             </Link>
                         </li>
                     ))}
-
                 </ul>
                 <button
                     onClick={() => setShowSearch(false)}
