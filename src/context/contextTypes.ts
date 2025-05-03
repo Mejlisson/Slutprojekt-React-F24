@@ -1,9 +1,10 @@
 export type FavoriteItem = {
     id: number;
     name: string;
-    type: 'COMIC' | 'MOVIE' | 'HERO' | 'CREATOR';
+    type: 'ALL' | 'COMIC' | 'MOVIE' | 'HERO' | 'CREATOR';
     image: string;
     rating: number;
+    resource_type: string;
 }
 
 export type FavoriteState = {

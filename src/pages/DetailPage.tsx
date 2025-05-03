@@ -2,6 +2,8 @@ import { useParams, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ComicApiItem } from "../components/homepage/MainCard";
 import { fetchDetail } from "../api/fetch/detailApi";
+import { FavoriteItem } from "../context/contextTypes";
+import FavoriteButton from "../components/buttons/FavoritButton";
 
 export default function DetailPage() {
     const { id } = useParams();
@@ -11,6 +13,7 @@ export default function DetailPage() {
     const [data, setData] = useState<ComicApiItem | null>(null);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(true);
+    const [showFullText, setShowFullText] = useState(false);
 
     useEffect(() => {
         if (!id || !resource) {
@@ -40,24 +43,59 @@ export default function DetailPage() {
                 <img src="/loading.gif" alt="Loading..." className="w-24 h-24" />
             </div>
         );
-    if (error) return <p className="text-red-500 p-4">{error}</p>;
-    if (!data) return <p className="p-4">No data found.</p>;
+
+    if (error)
+        return (
+            <div className="flex justify-center items-center h-screen">
+                <p className="text-red-500 text-xl">{error}</p>
+            </div>
+        );
+
+    if (!data)
+        return (
+            <div className="flex justify-center items-center h-screen">
+                <p className="text-gray-500 text-xl">No data found.</p>
+            </div>
+        );
+
+    const favoriteItem: FavoriteItem = {
+        id: data.id,
+        name: data.name || data.volume?.name || data.title || "Unknown",
+        image: data.image?.super_url || "",
+        resource_type: resource || "unknown",
+    };
 
     return (
         <div className="max-w-2xl mx-auto p-6 mt-28">
             <h1 className="text-2xl font-bold mb-4 flex flex-col items-center">
-                {data.volume?.name || data.name || data.title || "No name"}
+                {favoriteItem.name}
             </h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {data.image?.super_url && (
-                    <img
-                        src={data.image.super_url}
-                        alt={data.name}
-                        className="w-full rounded shadow mb-4"
-                    />
-                )}
-                <div className="group relative">
-                    <div className="max-h-[390px] overflow-hidden transition-all duration-[2500ms] ease-in-out group-hover:max-h-[1000px]">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+                {/*favoritknapp */}
+                <div className="flex flex-col">
+                    {favoriteItem.image && (
+                        <img
+                            src={favoriteItem.image}
+                            alt={favoriteItem.name}
+                            className="w-full rounded shadow mb-3"
+                        />
+                    )}
+                    <FavoriteButton item={favoriteItem} className="mt-2" />
+                </div>
+
+                {/* Text + Läs mer-knapp */}
+                <div className="flex flex-col">
+                    {/* Toggle button */}
+                    {data.description && (
+                        <button
+                            onClick={() => setShowFullText(!showFullText)}
+                            className="mb-2 self-start bg-yellow-400 hover:bg-yellow-500 text-black px-4 py-1 rounded text-sm font-semibold"
+                        >
+                            {showFullText ? "Visa mindre" : "Läs mer"}
+                        </button>
+                    )}
+
+                    <div className={`overflow-hidden transition-all duration-700 ease-in-out ${showFullText ? "max-h-full" : "max-h-[476px]"}`}>
                         {data.description ? (
                             <div
                                 className="text-gray-700"
@@ -67,12 +105,6 @@ export default function DetailPage() {
                             <p className="italic text-gray-400">No description available.</p>
                         )}
                     </div>
-
-                    {data.description && (
-                        <p className="absolute bottom-3 left-0 text-sm text-pink-500 italic opacity-70 group-hover:opacity-0 transition-opacity duration-500">
-                            Read more...
-                        </p>
-                    )}
                 </div>
             </div>
         </div>
