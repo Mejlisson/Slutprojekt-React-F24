@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchMainComic } from "../../api/MainCardApi";
+import { fetchMainComic } from "../../api/fetch/MainCardApi";
 
 
 export type ComicApiItem = {

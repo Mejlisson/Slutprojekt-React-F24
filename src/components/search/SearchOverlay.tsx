@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSearch } from "../../context/SearchContext";
-import { searchComicVine } from "../../api/searchApi";
+import { searchComicVine } from "../../api/fetch/searchApi";
+
 
 export default function SearchOverlay() {
     const { showSearch, setShowSearch } = useSearch();
@@ -33,9 +34,9 @@ export default function SearchOverlay() {
         }
     };
     return (
-        <div className="fixed inset-0 z-50 bg-gray-300 bg-opacity-10 flex items-center justify-center">
+        <div className="fixed inset-0 z-50 bg-gray-600/85 flex items-center justify-center">
             <div
-                className="relative w-[600px] h-[400px] rounded shadow-xl bg-center bg-cover bg-no-repeat flex flex-col items-center justify-center gap-4 p-4">
+                className="relative w-[600px] h-[400px] rounded bg-center bg-cover bg-no-repeat flex flex-col items-center justify-center gap-4 p-4">
                 {/* Input */}
                 <div className="bg-white rounded-full shadow-md flex items-center p-2 px-4 w-full">
                     <input
@@ -46,7 +47,7 @@ export default function SearchOverlay() {
                         className="flex-1 outline-none text-sm p-2"
                     />
                     <button onClick={handleSearch} className="ml-2 cursor-pointer scale-200 transition-transform">
-                        <img src="/search-icon.png" alt="Search" className="h-5 w-5" />
+                        <img src="/search-icon.png" alt="Search" className="h-5 w-5 animate-pulse" />
                     </button>
                 </div>
 
