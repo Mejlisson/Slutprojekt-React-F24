@@ -11,7 +11,7 @@ import RatingPage from "./pages/RatingPage";
 
 import SearchOverlay from "./components/search/SearchOverlay";
 import { SearchProvider } from "./context/SearchContext";
-import { FavoriteProvider } from "./context/FavoriteContext"; // 👈 lägg till denna!
+import { FavoriteProvider } from "./context/FavoriteContext";
 
 function App() {
   return (
@@ -20,7 +20,6 @@ function App() {
         <SearchProvider>
           <Navbar />
           <SearchOverlay />
-
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/details/:id" element={<DetailPage />} />
@@ -30,9 +29,9 @@ function App() {
             <Route path="/ratings" element={<RatingPage />} />
           </Routes>
 
-          <Footer />
         </SearchProvider>
       </FavoriteProvider>
+      <Footer />
     </BrowserRouter>
   );
 }
