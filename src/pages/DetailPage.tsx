@@ -1,10 +1,10 @@
 import { useParams, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { ComicApiItem } from "../components/homepage/MainCard";
 import { fetchDetail } from "../api/fetch/detailApi";
 import { FavoriteItem } from "../types/contextTypes";
 import FavoriteButton from "../components/buttons/FavoritButton";
 import RatingButton from "../components/buttons/RatingButton";
+import { ComicApiItem } from "../types/comicApiType";
 
 export default function DetailPage() {
     const { id } = useParams();
@@ -22,7 +22,6 @@ export default function DetailPage() {
             setLoading(false);
             return;
         }
-
         const getData = async () => {
             try {
                 const result = await fetchDetail(resource, id);
@@ -34,7 +33,6 @@ export default function DetailPage() {
                 setLoading(false);
             }
         };
-
         getData();
     }, [id, resource]);
 
@@ -44,14 +42,12 @@ export default function DetailPage() {
                 <img src="/loading.gif" alt="Loading..." className="w-24 h-24" />
             </div>
         );
-
     if (error)
         return (
             <div className="flex justify-center items-center h-screen">
                 <p className="text-red-500 text-xl">{error}</p>
             </div>
         );
-
     if (!data)
         return (
             <div className="flex justify-center items-center h-screen">
@@ -67,46 +63,76 @@ export default function DetailPage() {
     };
 
     return (
-        <div className="max-w-2xl mx-auto p-6 mt-28">
-            <h1 className="text-2xl font-bold mb-4 flex flex-col items-center">
-                {favoriteItem.name}
-            </h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-                {/*favoritknapp */}
-                <div className="flex flex-col">
+        <div className="max-w-5xl mx-auto p-6 mt-28 bg-[#fffbea] rounded-xl shadow-md border-4 border-black">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+                {/* Bild */}
+                <div className="flex justify-center">
                     {favoriteItem.image && (
                         <img
                             src={favoriteItem.image}
                             alt={favoriteItem.name}
-                            className="w-full rounded shadow mb-3"
+                            className="w-[300px] md:w-[350px] shadow-lg border-4 border-black"
                         />
                     )}
-                    <FavoriteButton item={favoriteItem} className="mt-2" />
-                    <RatingButton item={favoriteItem} />
                 </div>
 
-                {/* Text + Läs mer-knapp */}
-                <div className="flex flex-col">
-                    {/* Toggle button */}
-                    {data.description && (
-                        <button
-                            onClick={() => setShowFullText(!showFullText)}
-                            className="mb-2 self-start bg-yellow-400 hover:bg-yellow-500 text-black px-4 py-1 rounded text-sm font-semibold"
-                        >
-                            {showFullText ? "Visa mindre" : "Läs mer"}
-                        </button>
-                    )}
+                {/* Text och info */}
+                <div className="flex flex-col gap-3">
+                    <div className="flex justify-between items-start">
+                        <div className="flex flex-col gap-1">
+                            <div className="flex gap-2 text-xs font-bold uppercase">
+                                {data.volume?.name && <span className="bg-black text-white px-2 py-1 rounded">{data.volume.name}</span>}
+                                {data.publisher?.name && <span className="bg-black text-white px-2 py-1 rounded">{data.publisher.name}</span>}
+                            </div>
+                            <h1 className="text-3xl md:text-4xl font-bold text-black comic-font">
+                                {favoriteItem.name}
+                            </h1>
+                            {data.cover_date && (
+                                <p className="text-sm text-gray-500">{new Date(data.cover_date).toDateString()}</p>
+                            )}
+                        </div>
 
-                    <div className={`overflow-hidden transition-all duration-700 ease-in-out ${showFullText ? "max-h-full" : "max-h-[476px]"}`}>
+                        {/* Favoritknapp */}
+                        <div className="mt-1">
+                            <FavoriteButton item={favoriteItem} />
+                        </div>
+                    </div>
+                    {/* Rating och readmore kknapp */}
+                    <div className="mt-2">
+                        <div className="mb-2">
+                            <RatingButton item={favoriteItem} />
+                        </div>
+                        {data.description && (
+                            <button
+                                onClick={() => setShowFullText(!showFullText)}
+                                className="bg-yellow-200 hover:bg-yellow-300 px-4 py-1 rounded border border-black text-xs shadow"
+                            >
+                                {showFullText ? "Read less" : "Read more..."}
+                            </button>
+                        )}
+                        <button
+                            onClick={() => setShowModal(true)}
+                            className="bg-yellow-200 hover:bg-yellow-300 text-black px-3 py-1 rounded text-xs border border-black shadow"
+                        >
+                            Add more
+                        </button>
+
+                    </div>
+
+
+                    {/* Beskrivning */}
+                    <div className={`overflow-hidden transition-all duration-700 ease-in-out ${showFullText ? "max-h-full" : "max-h-[180px]"}`}>
                         {data.description ? (
                             <div
-                                className="text-gray-700"
+                                className="text-sm md:text-base text-gray-800"
                                 dangerouslySetInnerHTML={{ __html: data.description }}
                             />
                         ) : (
                             <p className="italic text-gray-400">No description available.</p>
                         )}
                     </div>
+
+
                 </div>
             </div>
         </div>

@@ -1,19 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchMainComic } from "../../api/fetch/MainCardApi";
-
-
-export type ComicApiItem = {
-    image?: {
-        super_url?: string; //Main image of the series
-    };
-    volume?: {
-        name?: string;  //Name of the series
-    };
-    description?: string; //Brief summary of the series
-    id: number;
-    name?: string;
-    title?: string;
-};
+import { ComicApiItem } from "../../types/comicApiType";
 
 export default function MainCard() {
     const [comic, setComic] = useState<ComicApiItem | null>(null);

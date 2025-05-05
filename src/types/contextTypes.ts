@@ -12,6 +12,9 @@ export type RatingItem = {
     image: string;
     resource_type: string;
     rating: number;
+    read: boolean;
+    review?: string;
+    pages?: number;
 }
 
 export type FavoriteState = {
