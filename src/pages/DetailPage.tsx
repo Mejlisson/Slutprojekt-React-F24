@@ -106,18 +106,6 @@ export default function DetailPage() {
                         </div>
                     </div>
 
-                    {/* Beskrivning */}
-                    <div className={`overflow-hidden transition-all duration-700 ease-in-out ${showFullText ? "max-h-full" : "max-h-[180px]"}`}>
-                        {data.description ? (
-                            <div
-                                className="text-sm md:text-base text-gray-800"
-                                dangerouslySetInnerHTML={{ __html: data.description }}
-                            />
-                        ) : (
-                            <p className="italic text-gray-400">No description available.</p>
-                        )}
-                    </div>
-
                     {/* Knapp-grupp */}
                     <div className="flex flex-col gap-2 mt-2">
                         <RatingButton item={favoriteItem} />
@@ -134,6 +122,17 @@ export default function DetailPage() {
                             >
                                 {showFullText ? "Read less" : "Read more..."}
                             </button>
+                        )}
+                    </div>
+                    {/* Beskrivning */}
+                    <div className={`overflow-hidden transition-all duration-700 ease-in-out ${showFullText ? "max-h-full" : "max-h-[180px]"}`}>
+                        {data.description ? (
+                            <div
+                                className="text-sm md:text-base text-gray-800"
+                                dangerouslySetInnerHTML={{ __html: data.description }}
+                            />
+                        ) : (
+                            <p className="italic text-gray-400">No description available.</p>
                         )}
                     </div>
                 </div>
