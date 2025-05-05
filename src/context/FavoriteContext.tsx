@@ -1,5 +1,5 @@
 import { createContext, useReducer, useContext, ReactNode } from 'react';
-import { FavoriteItem, FavoriteState, FavoriteAction } from './contextTypes';
+import { FavoriteItem, FavoriteState, FavoriteAction } from '../types/contextTypes';
 
 const initialState: FavoriteState = {
     favorites: [],

@@ -1,4 +1,4 @@
-import { FavoriteItem } from "../../context/contextTypes";
+import { FavoriteItem } from "../../types/contextTypes";
 import { useFavorite } from "../../context/FavoriteContext";
 
 type FavoriteButtonProps = {

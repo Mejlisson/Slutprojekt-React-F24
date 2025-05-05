@@ -6,6 +6,13 @@ export type FavoriteItem = {
     rating: number;
     resource_type: string;
 }
+export type RatingItem = {
+    id: string;
+    name: string;
+    image: string;
+    resource_type: string;
+    rating: number;
+}
 
 export type FavoriteState = {
     favorites: FavoriteItem[];
