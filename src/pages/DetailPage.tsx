@@ -1,10 +1,13 @@
 import { useParams, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+
 import { fetchDetail } from "../api/fetch/detailApi";
 import { FavoriteItem } from "../types/contextTypes";
 import FavoriteButton from "../components/buttons/FavoritButton";
 import RatingButton from "../components/buttons/RatingButton";
 import { ComicApiItem } from "../types/comicApiType";
+import AddMoreModal from "../components/modal/AddMoreModal";
+
 
 export default function DetailPage() {
     const { id } = useParams();
@@ -15,6 +18,7 @@ export default function DetailPage() {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(true);
     const [showFullText, setShowFullText] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         if (!id || !resource) {
@@ -22,6 +26,7 @@ export default function DetailPage() {
             setLoading(false);
             return;
         }
+
         const getData = async () => {
             try {
                 const result = await fetchDetail(resource, id);
@@ -33,6 +38,7 @@ export default function DetailPage() {
                 setLoading(false);
             }
         };
+
         getData();
     }, [id, resource]);
 
@@ -42,12 +48,14 @@ export default function DetailPage() {
                 <img src="/loading.gif" alt="Loading..." className="w-24 h-24" />
             </div>
         );
+
     if (error)
         return (
             <div className="flex justify-center items-center h-screen">
                 <p className="text-red-500 text-xl">{error}</p>
             </div>
         );
+
     if (!data)
         return (
             <div className="flex justify-center items-center h-screen">
@@ -97,28 +105,6 @@ export default function DetailPage() {
                             <FavoriteButton item={favoriteItem} />
                         </div>
                     </div>
-                    {/* Rating och readmore kknapp */}
-                    <div className="mt-2">
-                        <div className="mb-2">
-                            <RatingButton item={favoriteItem} />
-                        </div>
-                        {data.description && (
-                            <button
-                                onClick={() => setShowFullText(!showFullText)}
-                                className="bg-yellow-200 hover:bg-yellow-300 px-4 py-1 rounded border border-black text-xs shadow"
-                            >
-                                {showFullText ? "Read less" : "Read more..."}
-                            </button>
-                        )}
-                        <button
-                            onClick={() => setShowModal(true)}
-                            className="bg-yellow-200 hover:bg-yellow-300 text-black px-3 py-1 rounded text-xs border border-black shadow"
-                        >
-                            Add more
-                        </button>
-
-                    </div>
-
 
                     {/* Beskrivning */}
                     <div className={`overflow-hidden transition-all duration-700 ease-in-out ${showFullText ? "max-h-full" : "max-h-[180px]"}`}>
@@ -132,9 +118,30 @@ export default function DetailPage() {
                         )}
                     </div>
 
-
+                    {/* Knapp-grupp */}
+                    <div className="flex flex-col gap-2 mt-2">
+                        <RatingButton item={favoriteItem} />
+                        <button
+                            onClick={() => setShowModal(true)}
+                            className="bg-yellow-400 hover:bg-yellow-500 text-black px-3 py-1 rounded border border-black text-sm shadow w-fit"
+                        >
+                            Add more
+                        </button>
+                        {data.description && (
+                            <button
+                                onClick={() => setShowFullText(!showFullText)}
+                                className="bg-gray-200 hover:bg-gray-300 px-4 py-1 rounded border border-black text-xs shadow w-fit"
+                            >
+                                {showFullText ? "Read less" : "Read more..."}
+                            </button>
+                        )}
+                    </div>
                 </div>
             </div>
+
+            {showModal && (
+                <AddMoreModal item={favoriteItem} onClose={() => setShowModal(false)} />
+            )}
         </div>
     );
 }
