@@ -69,7 +69,12 @@ function FlipCard({ item, onRemove }: { item: any; onRemove: () => void }) {
                     onClick={() => setFlipped(!flipped)}
                 >
                     <h3 className="text-lg font-bold mb-2">Added Info</h3>
-                    <p className="text-m text-pink-600"><strong>Review:</strong> {item.review || "None"}</p>
+                    <div className="relative max-h-24 overflow-y-auto pr-1">
+                        <p className="text-m text-pink-600 whitespace-pre-line break-words">
+                            <strong>Review:</strong> {item.review || "None"}
+                        </p>
+                    </div>
+
                     <p className="text-m text-pink-600"><strong>Read Pages:</strong> {item.pages || "-"}</p>
                     <p className="text-m text-pink-600"><strong>Read:</strong> {item.read ? "Yes" : "No"}</p>
 
@@ -82,7 +87,7 @@ function FlipCard({ item, onRemove }: { item: any; onRemove: () => void }) {
                     >
                         <img src="/removeIcon.jpg" alt="Remove" className="w-7 h-7 mx-auto" />
                     </button>
-                    <p className="text-xs text-gray-500 mt-8 text-center">Click to flip back</p>
+                    <p className="text-xs text-gray-500 mt-6 text-center">Click to flip back</p>
                 </div>
             </div>
         </div>
