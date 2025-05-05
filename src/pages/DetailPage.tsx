@@ -2,8 +2,9 @@ import { useParams, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ComicApiItem } from "../components/homepage/MainCard";
 import { fetchDetail } from "../api/fetch/detailApi";
-import { FavoriteItem } from "../context/contextTypes";
+import { FavoriteItem } from "../types/contextTypes";
 import FavoriteButton from "../components/buttons/FavoritButton";
+import RatingButton from "../components/buttons/RatingButton";
 
 export default function DetailPage() {
     const { id } = useParams();
@@ -81,6 +82,7 @@ export default function DetailPage() {
                         />
                     )}
                     <FavoriteButton item={favoriteItem} className="mt-2" />
+                    <RatingButton item={favoriteItem} />
                 </div>
 
                 {/* Text + Läs mer-knapp */}
