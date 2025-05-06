@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+html,
+body,
+#root {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#root>div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    display: none;
+}
