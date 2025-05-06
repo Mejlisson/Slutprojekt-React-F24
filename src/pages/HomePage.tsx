@@ -10,18 +10,18 @@ export default function HomePage() {
     return (
         <>
             <IntroVideo />
-            <div className="transform bg-gray-300 relative z-10">
-                <div className="mt-[22px] text-white">
+            <div className="bg-gray-300">
+                <div className="">
 
-                    <div className="bg-gray-300 p-2 mr-20 ml-20 mt-2">
+                    <div className="bg-gray-300 p-2 mr-20 ml-20">
                         <MainCard />
                     </div>
 
-                    <div className="w-full mt-6">
+                    <div className="w-full mt-6 md:grid-cols-1">
                         <PopularMovie />
                     </div>
 
-                    <div className="mr-20 ml-20 mt-2 grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div className="md:grid-cols-1">
                         <PopularSeries />
                         <ForumActivity />
                     </div>

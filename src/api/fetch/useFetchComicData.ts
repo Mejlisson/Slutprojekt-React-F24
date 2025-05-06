@@ -1,4 +1,3 @@
-//egenHook
 import { useEffect, useState } from "react";
 import API_KEY from "../utils/apiKey";
 import { ComicApiItem } from "../../types/contextTypes";
