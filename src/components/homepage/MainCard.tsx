@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ComicApiItem } from "../../types/comicApiType";
 import { fetchMainComic } from "../../api/fetch/MainCardApi";
+import SeeMoreButton from "../buttons/SeeMoreButton";
 
 export default function MainCard() {
     const [comic, setComic] = useState<ComicApiItem | null>(null);
@@ -47,11 +48,7 @@ export default function MainCard() {
                     </p>
 
                     <div className="mt-6">
-                        <button
-                            onClick={() => navigate(`/details/${comic.id}?resource=issue`)}
-                            className="text-xs h-[30px] w-[90px] text-black bg-pink-500 border-3 border-black shadow-[4px_4px_0px_black] p-1 text-center transition duration-300 ease-in-out hover:scale-110 hover:-translate-y-1"
-                        >Read More
-                        </button>
+                        <SeeMoreButton id={comic.id} resource="issue" />
                     </div>
                 </div>
             </div>

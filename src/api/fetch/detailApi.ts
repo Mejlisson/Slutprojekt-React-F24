@@ -1,11 +1,11 @@
-import { ComicApiItem } from "../../components/homepage/MainCard";
+
+import { ComicApiItem } from "../../types/contextTypes";
 import API_KEY from "../utils/apiKey";
 import { getPrefixForResourceType } from "../utils/PrefixForApiFetch";
 
 export async function fetchDetail(resourceType: string, id: string): Promise<ComicApiItem> {
     console.log("Resource type:", resourceType, "ID:", id);
 
-    // Hämtar med rätt prefix baserat på search typ
     const prefix = getPrefixForResourceType(resourceType);
     const url = `/api/${resourceType}/${prefix}-${id}/?api_key=${API_KEY}&format=json`;
     console.log("Fetching detail from URL:", url);
@@ -17,10 +17,8 @@ export async function fetchDetail(resourceType: string, id: string): Promise<Com
         console.error("Fetch failed:", response.statusText);
         throw new Error("Fetch failed");
     }
-
     if (!data.results) {
         console.warn("No API response.");
     }
-
     return data.results;
 }
