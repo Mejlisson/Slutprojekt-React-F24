@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ComicApiItem } from "../../types/comicApiType";
 import { fetchMainComic } from "../../api/fetch/MainCardApi";
 import SeeMoreButton from "../buttons/SeeMoreButton";
+import { ComicApiItem } from "../../types/contextTypes";
 
 export default function MainCard() {
     const [comic, setComic] = useState<ComicApiItem | null>(null);
-    const navigate = useNavigate();
 
     useEffect(() => {
         fetchMainComic()
@@ -24,11 +23,11 @@ export default function MainCard() {
 
     return (
         <section className="bg-[#fff] py-10 px-4 md:px-16 border-4 border-black shadow-[6px_4px_0px_black]">
-            <h2 className="text-4xl font-extrabold uppercase text-red-600 mb-8">
-                Best Comics
+            <h2 className="-ml-15 text-5xl font-extrabold uppercase text-red-600 mb-8">
+                Popular Comics
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-8 items-center border-4 border-black bg-yellow-100 shadow-[6px_4px_0px_black] p-6">
+            <div className="grid md:grid-cols-2 gap-8 border-4 border-black bg-yellow-100 shadow-[6px_4px_0px_black] p-6">
                 <img
                     src={comic.image?.super_url}
                     alt={comic.name}
@@ -39,9 +38,8 @@ export default function MainCard() {
                     <span className="text-xs uppercase bg-black text-white px-2 py-1 rounded">
                         {comic.volume?.name}
                     </span>
-
-                    <h3 className="text-2xl font-bold mt-2 mb-3">{comic.name}</h3>
-                    <p className="text-sm text-gray-700 leading-relaxed line-clamp-5">
+                    <h3 className="text-2xl font-bold mt-20 mb-3">{comic.name}</h3>
+                    <p className="text-s text-gray-800 leading-relaxed line-clamp-5 ">
                         {comic.description
                             ? comic.description.replace(/<[^>]+>/g, "")
                             : "No description available."}
