@@ -1,6 +1,5 @@
 import { useParams, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-
 import { fetchDetail } from "../api/fetch/detailApi";
 import { FavoriteItem } from "../types/contextTypes";
 import FavoriteButton from "../components/buttons/FavoritButton";
@@ -71,7 +70,7 @@ export default function DetailPage() {
     };
 
     return (
-        <div className="max-w-5xl mx-auto p-6 mt-28 bg-[#fffbea] rounded-xl shadow-md border-4 border-black">
+        <div className="max-w-5xl mx-auto p-6 mt-28 bg-[#fffbea] border-4 border-black shadow-[10px_8px_0px_black] ">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
                 {/* Bild */}
                 <div className="flex justify-center">
@@ -111,14 +110,14 @@ export default function DetailPage() {
                         <RatingButton item={favoriteItem} />
                         <button
                             onClick={() => setShowModal(true)}
-                            className="bg-yellow-400 hover:bg-yellow-500 text-black px-3 py-1 rounded border border-black text-sm shadow w-fit"
+                            className="bg-yellow-400 hover:bg-yellow-500 text-black px-3 py-1 border-2 border-black shadow-[4px_4px_0px_black] text-sm w-fit"
                         >
                             Add more
                         </button>
                         {data.description && (
                             <button
                                 onClick={() => setShowFullText(!showFullText)}
-                                className="bg-gray-200 hover:bg-gray-300 px-4 py-1 rounded border border-black text-xs shadow w-fit"
+                                className="bg-pink-500 hover:bg-pink-400 px-4 py-1 border-2 border-black shadow-[4px_4px_0px_black] text-xs w-fit"
                             >
                                 {showFullText ? "Read less" : "Read more..."}
                             </button>

@@ -1,56 +1,60 @@
 import { useEffect, useState } from "react";
-import { fetchMainComic } from "../../api/fetch/MainCardApi";
+import { useNavigate } from "react-router-dom";
 import { ComicApiItem } from "../../types/comicApiType";
+import { fetchMainComic } from "../../api/fetch/MainCardApi";
 
 export default function MainCard() {
     const [comic, setComic] = useState<ComicApiItem | null>(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        const getComic = async () => {
-            try {
-                const data: ComicApiItem = await fetchMainComic();
-
-                if (data.image?.super_url && data.volume?.name) {
-                    setComic(data);
-                } else {
-                    console.warn("Saknar img eller namn:", data);
-                }
-            } catch (error) {
-                console.error("Fel vid hämtning:", error);
-            }
-        };
-
-        getComic();
+        fetchMainComic()
+            .then(setComic)
+            .catch((error) => console.error("Failed to fetch main comic:", error));
     }, []);
 
-    //Loading Batman
     if (!comic) {
         return (
-            <div className="flex justify-center items-center h-[150px]">
-                <img src="/loading.gif" alt="Loading..." className="w-20 h-20" />
+            <div className="flex justify-center items-center py-16">
+                <img src="/loading.gif" alt="Loading..." className="w-16 h-16" />
             </div>
         );
     }
 
     return (
-        <div className="">
-            <div className="bg-gray-300  p-6 flex gap-6 items-start">
+        <section className="bg-[#fff] py-10 px-4 md:px-16 border-4 border-black shadow-[6px_4px_0px_black]">
+            <h2 className="text-4xl font-extrabold uppercase text-red-600 mb-8">
+                Best Comics
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-8 items-center border-4 border-black bg-yellow-100 shadow-[6px_4px_0px_black] p-6">
                 <img
                     src={comic.image?.super_url}
-                    alt={comic.volume?.name}
-                    className="w-48 rounded shadow-xl object-contain"
+                    alt={comic.name}
+                    className="w-full h-auto object-cover rounded shadow"
                 />
-                <div className="flex flex-col">
-                    <h2 className="text-5xl   text-black font-bold">{comic.volume?.name}</h2>
-                    <p
-                        className="mt-2 text-sm text-black"
-                        dangerouslySetInnerHTML={{
-                            __html: comic.description || "<em>Ingen beskrivning tillgänglig.</em>",
-                        }}
-                    />
+
+                <div className="text-black">
+                    <span className="text-xs uppercase bg-black text-white px-2 py-1 rounded">
+                        {comic.volume?.name}
+                    </span>
+
+                    <h3 className="text-2xl font-bold mt-2 mb-3">{comic.name}</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed line-clamp-5">
+                        {comic.description
+                            ? comic.description.replace(/<[^>]+>/g, "")
+                            : "No description available."}
+                    </p>
+
+                    <div className="mt-6">
+                        <button
+                            onClick={() => navigate(`/details/${comic.id}?resource=issue`)}
+                            className="text-xs h-[30px] w-[90px] text-black bg-pink-500 border-3 border-black shadow-[4px_4px_0px_black] p-1 text-center transition duration-300 ease-in-out hover:scale-110 hover:-translate-y-1"
+                        >Read More
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
-
 }
