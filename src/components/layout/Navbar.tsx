@@ -1,11 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSearch } from "../../context/SearchContext";
 
 export default function Navbar() {
     const navigate = useNavigate();
-    const { setShowSearch } = useSearch(); //Hook från SearchContext
+    const { setShowSearch } = useSearch(); // Hook från SearchContext
     const [showOptions, setShowOptions] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    // Scroll-effekt
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY <= 10); // Inverterad effekt
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const handleToggle = (path: string) => {
         navigate(path);
@@ -13,11 +24,15 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="fixed top-0 left-0 w-full bg-gray-200 h-20 z-50 px-4 flex items-center justify-between">
-
+        <nav
+            className={`fixed top-0 left-0 w-full h-20 z-50 px-4 flex items-center justify-between transition-all duration-300
+            ${scrolled
+                    ? "bg-white/30 backdrop-blur-md border-b border-white/30"
+                    : "bg-gray-200 shadow-md border-b border-black"
+                }`}
+        >
             {/* Logotypen */}
-            <div className="bg-yellow-300 absolute top-0 sm:left-[88px] left-10 h-[100px] sm:h-[130px] w-[130px] place-items-center">
-            </div>
+            <div className="bg-yellow-300 absolute top-0 sm:left-[88px] left-10 h-[100px] sm:h-[130px] w-[130px] place-items-center" />
             <div
                 className="absolute top-2 sm:left-26 sm:top-5 left-[60px] cursor-pointer"
                 onClick={() => handleToggle("/")}
@@ -25,23 +40,19 @@ export default function Navbar() {
                 <img src="/logo.png" alt="Logo" className="h-20 w-auto sm:h-24" />
             </div>
 
-            {/* toggler-meny */}
-            <div className="absolute top-2 sm:right-22 sm:top-3 right-[50px] cursor-pointer z-50">
+            {/*meny med hover */}
+            <div
+                className="absolute top-2 sm:right-22 sm:top-3 right-[50px] cursor-pointer z-50"
+                onMouseEnter={() => setShowOptions(true)}
+                onMouseLeave={() => setShowOptions(false)}
+            >
                 <div
                     className="bg-yellow-300 px-2 py-1 sm:px-3 sm:py-2 rounded-bl-[40px] sm:rounded-bl-[50px] shadow-lg flex items-center gap-2"
-                    onClick={() => {
-                        if (showOptions) {
-                            setShowSearch(true); // SearchOverlay
-                            setShowOptions(false);
-                        } else {
-                            setShowOptions(true);
-                        }
-                    }}
                 >
                     <img src="/search-icon.png" alt="Search" className="h-8 w-8 sm:h-10 sm:w-10" title="Menu" />
                 </div>
 
-                {/* vid klick visas favorit och rating */}
+                {/* vid hover visas favorit och rating */}
                 {showOptions && (
                     <div className="absolute top-full right-0 mt-2 flex flex-col items-end gap-2 z-50">
                         <img
