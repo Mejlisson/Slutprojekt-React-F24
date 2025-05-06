@@ -13,7 +13,7 @@ export default function HomePage() {
             <div className="bg-gray-300">
                 <div className="">
 
-                    <div className="bg-gray-300 p-2 mr-20 ml-20">
+                    <div className="bg-gray-300 p-2 mr-17 ml-17">
                         <MainCard />
                     </div>
 

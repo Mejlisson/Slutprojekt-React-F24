@@ -19,7 +19,7 @@ export default function PopularMovie() {
 
     return (
         <section className="bg-white py-10  relative">
-            <h2 className="ml-24 text-5xl font-extrabold uppercase text-red-600 mb-6">
+            <h2 className="ml-22 text-5xl font-extrabold uppercase text-red-600 mb-6">
                 Top Movies
             </h2>
             {

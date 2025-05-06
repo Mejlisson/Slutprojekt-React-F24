@@ -11,7 +11,7 @@ export default function PopularSeries() {
 
     return (
         <section className="bg-red-600 py-10 md:px-10 text-white relative">
-            <h2 className="text-5xl font-extrabold uppercase mb-6">Top Volume</h2>
+            <h2 className="ml-12 text-5xl font-extrabold uppercase mb-6">Top Volume</h2>
 
             {loading && (
                 <div className="flex justify-center items-center">

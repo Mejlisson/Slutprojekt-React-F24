@@ -22,8 +22,8 @@ export default function MainCard() {
     }
 
     return (
-        <section className="bg-[#fff] py-10 px-4 md:px-16 border-4 border-black shadow-[6px_4px_0px_black]">
-            <h2 className="-ml-15 text-5xl font-extrabold uppercase text-red-600 mb-8">
+        <section className="bg-[#fff] py-10 px-4 md:px-18 border-4 border-black shadow-[6px_4px_0px_black]">
+            <h2 className="-ml-16.5 text-5xl font-extrabold uppercase text-red-600 mb-8">
                 Popular Comics
             </h2>
 
