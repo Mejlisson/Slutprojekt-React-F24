@@ -42,7 +42,7 @@ export default function Navbar() {
                 <img src="/logo.png" alt="Logo" className="h-20 w-auto sm:h-24" />
             </div>
 
-            {/* Meny-knapp med hover */}
+            {/*   Meny   */}
             <div
                 className="absolute top-2 sm:right-22 sm:top-3 right-[50px] cursor-pointer z-50"
                 onMouseEnter={() => {
