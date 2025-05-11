@@ -4,7 +4,7 @@ import { ComicApiItem } from "../../types/contextTypes";
 import SeeMoreButton from "../buttons/SeeMoreButton";
 
 export default function PopularMovie() {
-    const { data: movies, loading, error } = useFetchComicData<ComicApiItem>("movies", 20);
+    const { data: movies, loading, error } = useFetchComicData<ComicApiItem>("movies", 15);
     const scrollRef = useRef<HTMLDivElement>(null);
 
     const handleScroll = (direction: "left" | "right") => {
@@ -76,3 +76,4 @@ export default function PopularMovie() {
         </section >
     );
 }
+//useRef för att referera till scrollbar, och useFetchComicData för att hämta data från API.

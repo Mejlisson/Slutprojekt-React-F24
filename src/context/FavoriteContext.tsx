@@ -4,7 +4,7 @@ import { FavoriteItem, FavoriteState, FavoriteAction } from '../types/contextTyp
 const initialState: FavoriteState = {
     favorites: [],
 };
-/// Reducer function to manage the favorite items(add/remove controls/handles via id)
+/// global derucer-funktion som hanterar state och action med item.id och payload
 function favoriteReducer(state: FavoriteState, action: FavoriteAction): FavoriteState {
     switch (action.type) {
         case 'ADD_FAVORITE':
@@ -18,8 +18,6 @@ function favoriteReducer(state: FavoriteState, action: FavoriteAction): Favorite
             return state;
     }
 }
-
-/// Create a context for the favorite items
 const FavoriteContext = createContext<{
     state: FavoriteState;
     dispatch: React.Dispatch<FavoriteAction>;
@@ -36,5 +34,5 @@ export const FavoriteProvider = ({ children }: { children: ReactNode }) => {
         </FavoriteContext.Provider>
     );
 };
-
 export const useFavorite = () => useContext(FavoriteContext);
+// context provider som wrappar hela appen och ger state och dispatch till alla komponenter

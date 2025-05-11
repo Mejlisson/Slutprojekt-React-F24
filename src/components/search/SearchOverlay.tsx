@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSearch } from "../../context/SearchContext";
 import { searchComicVine } from "../../api/fetch/searchApi";
+
 export default function SearchOverlay() {
     const { showSearch, setShowSearch } = useSearch();
     const [query, setQuery] = useState("");
@@ -35,6 +36,7 @@ export default function SearchOverlay() {
         <div className="fixed inset-0 z-50 bg-gray-600/85 flex items-center justify-center">
             <div
                 className="relative w-[600px] h-[400px] rounded bg-center bg-cover bg-no-repeat flex flex-col items-center justify-center gap-4 p-4">
+
                 {/* Sök-input */}
                 <div className="bg-white rounded-full shadow-md flex items-center p-2 px-4 w-full">
                     <input
@@ -55,10 +57,9 @@ export default function SearchOverlay() {
                     </div>
                 )}
 
-
                 {error && <p className="text-red-500">{error}</p>}
 
-
+                {/* lista med sökresultat */}
                 <ul className="rounded p-3 w-full h-[300px] overflow-y-auto space-y-[1px]">
                     {searchResults.map((result: any, index: number) => (
                         <li key={index} className="bg-white">

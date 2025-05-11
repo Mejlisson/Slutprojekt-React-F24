@@ -2,7 +2,7 @@ import { useState } from "react";
 import { RatingItem } from "../../types/contextTypes";
 import { useRating } from "../../context/RatingContext";
 
-interface AddMoreModalProps {
+type AddMoreModalProps = {
     item: Omit<RatingItem, "rating" | "read" | "review" | "pages">;
     onClose: () => void;
 }
@@ -19,7 +19,7 @@ export default function AddMoreModal({ item, onClose }: AddMoreModalProps) {
             type: "ADD_OR_UPDATE_RATING",
             payload: {
                 ...item,
-                rating: existing?.rating || 0, // behåll tidigare rating
+                rating: existing?.rating || 0,
                 read,
                 review,
                 pages: pages ? Number(pages) : undefined,
@@ -52,7 +52,7 @@ export default function AddMoreModal({ item, onClose }: AddMoreModalProps) {
                 </div>
 
                 <div className="mb-4">
-                    <label className="block font-medium mb-1">Review:</label>
+                    <label className="block font-medium mb-1">Text Review:</label>
                     <textarea
                         value={review}
                         onChange={(e) => setReview(e.target.value)}

@@ -12,7 +12,7 @@ export default function FavoriteButton({ item, className = "" }: FavoriteButtonP
 
     const toggleFavorite = () => {
         if (isFavorite) {
-            dispatch({ type: "REMOVE_FAVORITE", payload: item.id });
+            dispatch({ type: "REMOVE_FAVORITE", payload: item.id });//kollar om itemet är en favorit genom att jämföra id:t.
         } else {
             dispatch({ type: "ADD_FAVORITE", payload: item });
         }
@@ -28,3 +28,8 @@ export default function FavoriteButton({ item, className = "" }: FavoriteButtonP
         </button>
     );
 }
+
+//Denna komponent är en knapp som används för att spara eller ta bort en favorit.
+//useFavorite hooken används för att hämta state och dispatch funktionen.
+//den kollar om itemet redan är en favorit genom att jämföra id:t.
+//Om det redan är favorit så tar den bort från favoriterna med click,om den inte är lägger till

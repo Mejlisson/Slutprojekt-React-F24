@@ -51,4 +51,17 @@ export type ComicApiItem = {
     cover_date?: string; //Date of the cover
 };
 
+export type ComicTeam = {
+    id: number;
+    name: string;
+    api_detail_url: string;
+    image?: {
+        icon_url: string;
+        medium_url: string;
+        original_url: string;
+        super_url?: string;
+    };
+};
+
+
 export type ResourceType = "issue" | "volume" | "character" | "creator" | "movie" | "series";

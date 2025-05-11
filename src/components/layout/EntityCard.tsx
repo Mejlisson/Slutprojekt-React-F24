@@ -1,19 +1,23 @@
 import { useState } from "react";
 import { RatingItem } from "../../types/contextTypes";
 
-interface Props {
+type Props = {
     item: RatingItem;
     type: "rating" | "favorite";
     onRemove: () => void;
-}
+};
 
 export default function EntityCard({ item, type, onRemove }: Props) {
     const [flipped, setFlipped] = useState(false);
 
     return (
-        <div className="relative w-full h-[320px] cursor-pointer [perspective:1000px] hover:-translate-y-1 transition-transform duration-300">
+        <div className="relative w-full h-[320px] cursor-pointer [perspective:1000px] hover:-translate-y-1 transition-transform duration-300 will-change-[transform]">
             <div
-                className={`absolute inset-0 transition-transform duration-500 [transform-style:preserve-3d] ${flipped && type === "rating" ? "[transform:rotateY(180deg)]" : ""
+                className={`absolute inset-0 transition-transform duration-500 [transform-style:preserve-3d] ${type === "rating"
+                    ? flipped
+                        ? "[transform:rotateY(180deg)]"
+                        : "[transform:rotateY(0deg)]"
+                    : ""
                     }`}
             >
                 {/* Front */}
@@ -58,12 +62,16 @@ export default function EntityCard({ item, type, onRemove }: Props) {
                             }}
                             className="mt-6 mx-auto block bg-white hover:bg-pink-600 px-3 py-1 rounded-full border-2 border-black text-black shadow-[4px_4px_0px_black] transition duration-300 ease-in-out hover:scale-[1.3]"
                         >
-                            <img src="/removeIcon.jpg" alt="Remove" className="w-6 h-6 mx-auto" />
+                            <img
+                                src="/removeIcon.jpg"
+                                alt="Remove"
+                                className="w-6 h-6 mx-auto"
+                            />
                         </button>
                     )}
                 </div>
 
-                {/* Back on fliped card (rating only) */}
+                {/* Back (flipped card, only for rating) */}
                 {type === "rating" && (
                     <div
                         className="absolute inset-0 bg-yellow-100 border-4 border-black shadow-[4px_4px_0px_black] p-4 text-left [transform:rotateY(180deg)] [backface-visibility:hidden]"
@@ -91,10 +99,16 @@ export default function EntityCard({ item, type, onRemove }: Props) {
                             }}
                             className="mt-8 mx-auto block bg-white hover:bg-pink-600 px-3 py-1 rounded-full border-2 border-black text-black shadow-[4px_4px_0px_black] transition duration-300 ease-in-out hover:scale-[1.3]"
                         >
-                            <img src="/removeIcon.jpg" alt="Remove" className="w-6 h-6 mx-auto" />
+                            <img
+                                src="/removeIcon.jpg"
+                                alt="Remove"
+                                className="w-6 h-6 mx-auto"
+                            />
                         </button>
 
-                        <p className="text-xs text-gray-500 mt-6 text-center">Click to flip back</p>
+                        <p className="text-xs text-pink-600 mt-6 text-center">
+                            Click to flip back
+                        </p>
                     </div>
                 )}
             </div>

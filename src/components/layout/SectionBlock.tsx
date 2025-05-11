@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-interface SectionBlockProps {
+type SectionBlockProps = {
     children: ReactNode;
     className?: string;
 }
@@ -12,3 +12,5 @@ export default function SectionBlock({ children, className }: SectionBlockProps)
         </div>
     );
 }
+
+//ReactNode för att kunna använda children av komponenten, och prpsför att skicka in props till komponenten.

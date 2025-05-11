@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { fetchMainComic } from "../../api/fetch/MainCardApi";
 import SeeMoreButton from "../buttons/SeeMoreButton";
 import { ComicApiItem } from "../../types/contextTypes";

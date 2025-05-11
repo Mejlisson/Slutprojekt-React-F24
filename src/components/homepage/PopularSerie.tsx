@@ -37,7 +37,7 @@ export default function PopularSeries() {
             >
                 {series.map((item) => (
                     <SwiperSlide key={item.id}>
-                        <div className="relative rounded overflow-hidden shadow-lg border-4 border-black group transition-transform duration-300 hover:-translate-y-1">
+                        <div className="relative rounded overflow-hidden shadow-lg border-6 border-black group transition-transform duration-300 hover:-translate-y-1">
                             <img
                                 src={item.image?.super_url}
                                 alt={item.name}
@@ -53,16 +53,14 @@ export default function PopularSeries() {
                     </SwiperSlide>
                 ))}
                 {/*vänster*/}
-                <div className="swiper-button-prev absolute -left-10 cursor-pointer hover:scale-110 transition">
+                <div className="swiper-button-prev absolute -left-10 cursor-pointer hover:scale-110 transition hover:bg-yellow-300">
                     <img src="/left.png" alt="Scroll Left" className="w-10 h-10" />
                 </div>
 
                 {/*höger*/}
-                <div className="swiper-button-next absolute -right-6 cursor-pointer hover:scale-110 transition">
+                <div className="swiper-button-next absolute -right-6 cursor-pointer hover:scale-110 transition hover:bg-yellow-300">
                     <img src="/right.png" alt="Scroll Right" className="w-10 h-10" />
                 </div>
-
-
             </Swiper>
         </section>
     );
