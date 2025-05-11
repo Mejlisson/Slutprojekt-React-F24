@@ -3,7 +3,7 @@ import MainCard from "../components/homepage/MainCard";
 import PopularMovie from "../components/homepage/PopularMovie";
 import PopularSeries from "../components/homepage/PopularSerie";
 import RandomFacts from "../components/homepage/RandomFacts";
-import UpcomingEvents from "../components/homepage/UpcomingEvents";
+import ComicStats from "../components/homepage/ComicStats";
 
 export default function HomePage() {
     return (
@@ -23,7 +23,9 @@ export default function HomePage() {
                     <div className="md:grid-cols-1">
                         <PopularSeries />
                     </div>
-                    <div className="m-50 bg-gray-300">
+                    <div className="ml-15 mr-10 bg-gray-300 grid grid-cols-2 ">
+                        <RandomFacts />
+                        <ComicStats />
                     </div>
                 </div>
             </div>

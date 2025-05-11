@@ -12,7 +12,7 @@ export default function Navbar() {
     // Scroll-effekt för bakgrund
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY <= 500); // Inverterad effekt
+            setScrolled(window.scrollY <= 100); // Inverterad effekt
         };
 
         window.addEventListener("scroll", handleScroll);
