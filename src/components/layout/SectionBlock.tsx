@@ -12,5 +12,3 @@ export default function SectionBlock({ children, className }: SectionBlockProps)
         </div>
     );
 }
-
-//ReactNode för att kunna använda children av komponenten, och prpsför att skicka in props till komponenten.
