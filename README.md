@@ -1,4 +1,4 @@
-# Comic Vine – A Comic Web App
+<img src="public/readme.gif" alt="Comic Vine Intro" width="100%" /> # Comic Vine – A Comic Web App
 
 **Comic Vine** is a responsive, stylish, and interactive web application that will let users to explore and interact with comic book data such as characters, creators, movies, series, and more by allowing user  rate, and favorite comic book content ...
 
