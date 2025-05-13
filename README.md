@@ -1,6 +1,6 @@
 # Comic Vine – A Comic Web App
 
-**Comic Vine** is a responsive, stylish, and interactive web application that lets users to explore and interact with comic book data such as characters, creators, movies, series, and more by allowing user  rate, and favorite comic book content ...
+**Comic Vine** is a responsive, stylish, and interactive web application that will let users to explore and interact with comic book data such as characters, creators, movies, series, and more by allowing user  rate, and favorite comic book content ...
 
 This project is part of my frontend development course, where I focused on **user experience**, **responsive design**, **component reuse**, and **clean architecture**. The app is styled in a **comic book art style**, inspired by vintage panels, bold frames, and vibrant colors – creating a fun and engaging experience for comic lovers.
 
