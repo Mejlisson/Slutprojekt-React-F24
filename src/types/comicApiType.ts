@@ -1,21 +1,17 @@
 export type FavoriteItem = {
-    id: number;
-    name: string;
-    type: 'ALL' | 'COMIC' | 'MOVIE' | 'HERO' | 'CREATOR';
-    image: string;
-    rating: number;
-    resource_type: string;
-}
-export type RatingItem = {
     id: string;
     name: string;
     image: string;
     resource_type: string;
-    rating: number;
-    read: boolean;
+    type?: string;
+    rating?: number;
+};
+
+export type RatingItem = FavoriteItem & {
+    read?: boolean;
     review?: string;
     pages?: number;
-}
+};
 
 export type FavoriteState = {
     favorites: FavoriteItem[];
