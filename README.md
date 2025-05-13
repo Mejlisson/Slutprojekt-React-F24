@@ -55,11 +55,11 @@ src/
 
 ### 1.Clone the repo
 ### 2. Install dependencies
-npm install
+```npm install```
 ### 3. Create a .env file and add your Comic Vine API key
-VITE_COMICVINE_API_KEY=your_api_key_here
+```VITE_COMICVINE_API_KEY=your_api_key_here```
 ### 4. Start the development server
-npm run dev
+```npm run dev```
 
 ## UX Highlights
 - Comic-style design with bold colors, speech bubbles, and panel layouts
