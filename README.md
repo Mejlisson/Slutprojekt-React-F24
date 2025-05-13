@@ -38,14 +38,16 @@ This project is part of my frontend development course, where I focused on **use
 ---
 
 ## Project Structure
+```text
 src/
-├── api/ # Handles all API requests
-├── components/ # Reusable UI components
-├── pages/ # Route-specific views (Home, Detail, Favorites, Ratings, etc.)
-├── styles/ # Tailwind config and custom CSS variables
-├── utils/ # Helper functions
-└── App.tsx # App entry with router
+├── api/         # Handles all API fetches and utilities to Comic Vine API
+├── components/  # Reusable UI components like cards, modals, buttons, layout, etc.
+├── context/     # Global state management using React Context (e.g. favorites, ratings)
+├── pages/       # Route-specific views (Home, Detail, Favorites, Ratings, Search, etc.)
+├── types/       # TypeScript type definitions and interfaces for API responses
+└── App.tsx      # Main app component including routing and layout structure
 
+```
 
 ---
 
