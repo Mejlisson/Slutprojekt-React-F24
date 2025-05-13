@@ -22,9 +22,10 @@ export default function MainCard() {
 
     return (
         <section className="bg-[#fff] py-10 px-4 md:px-18 border-4 border-black shadow-[6px_4px_0px_black]">
-            <h2 className="-ml-16.5 text-5xl font-extrabold uppercase text-red-600 mb-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase text-red-600 mb-6 sm:mb-8 ml-2 sm:ml-4 md:ml-0">
                 Popular Comics
             </h2>
+
 
             <div className="grid md:grid-cols-2 gap-8 border-4 border-black bg-yellow-100 shadow-[6px_4px_0px_black] p-6">
                 <img

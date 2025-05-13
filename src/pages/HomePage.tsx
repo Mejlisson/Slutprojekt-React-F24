@@ -23,10 +23,12 @@ export default function HomePage() {
                     <div className="md:grid-cols-1">
                         <PopularSeries />
                     </div>
-                    <div className="ml-15 mr-10 bg-gray-300 grid grid-cols-2 ">
+                    <div className="bg-gray-300 grid grid-cols-1 md:grid-cols-2 gap-4 ml-6 mr-6 md:ml-0 md:mr-0 md:px-10 py-6">
                         <RandomFacts />
                         <ComicStats />
                     </div>
+
+
                 </div>
             </div>
         </>
