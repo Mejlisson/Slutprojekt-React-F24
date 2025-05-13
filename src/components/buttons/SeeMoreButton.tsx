@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { ResourceType } from "../../types/contextTypes";
+import { ResourceType } from "../../types/comicApiType";
 
 type SeeMoreButtonProps = {
     id: number;

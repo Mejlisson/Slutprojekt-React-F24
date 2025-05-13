@@ -1,6 +1,6 @@
 import { useState } from "react";
 import EntityCard from "../components/layout/EntityCard";
-import { useRating } from "../context/RatingContext";
+import { useRating } from "../context/ratingContext";
 
 export default function RatingPage() {
     const { state, dispatch } = useRating();

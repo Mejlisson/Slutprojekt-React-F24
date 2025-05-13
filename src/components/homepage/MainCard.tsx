@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchMainComic } from "../../api/fetch/MainCardApi";
 import SeeMoreButton from "../buttons/SeeMoreButton";
-import { ComicApiItem } from "../../types/contextTypes";
+import { ComicApiItem } from "../../types/comicApiType";
 
 export default function MainCard() {
     const [comic, setComic] = useState<ComicApiItem | null>(null);

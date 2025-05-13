@@ -1,5 +1,5 @@
 
-import { ComicApiItem } from "../../types/contextTypes";
+import { ComicApiItem } from "../../types/comicApiType";
 import API_KEY from "../utils/apiKey";
 import { getPrefixForResourceType } from "../utils/PrefixForApiFetch";
 

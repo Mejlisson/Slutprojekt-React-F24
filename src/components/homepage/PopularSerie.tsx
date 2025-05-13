@@ -1,4 +1,4 @@
-import { ComicApiItem } from "../../types/contextTypes";
+import { ComicApiItem } from "../../types/comicApiType";
 import { useFetchComicData } from "../../api/fetch/useFetchComicData";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";

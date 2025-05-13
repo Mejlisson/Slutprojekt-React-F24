@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { RatingItem } from "../../types/contextTypes";
+import { RatingItem } from "../../types/comicApiType";
 
 type Props = {
     item: RatingItem;

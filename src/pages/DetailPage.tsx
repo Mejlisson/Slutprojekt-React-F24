@@ -1,7 +1,7 @@
 import { useParams, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchDetail } from "../api/fetch/detailApi";
-import { FavoriteItem } from "../types/contextTypes";
+import { FavoriteItem } from "../types/comicApiType";
 import FavoriteButton from "../components/buttons/FavoritButton";
 import RatingButton from "../components/buttons/RatingButton";
 import { ComicApiItem } from "../types/comicApiType";

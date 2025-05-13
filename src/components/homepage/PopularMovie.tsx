@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useFetchComicData } from "../../api/fetch/useFetchComicData";
-import { ComicApiItem } from "../../types/contextTypes";
+import { ComicApiItem } from "../../types/comicApiType";
 import SeeMoreButton from "../buttons/SeeMoreButton";
 
 export default function PopularMovie() {

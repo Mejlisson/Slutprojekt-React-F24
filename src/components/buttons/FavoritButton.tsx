@@ -1,4 +1,4 @@
-import { FavoriteItem } from "../../types/contextTypes";
+import { FavoriteItem } from "../../types/comicApiType";
 import { useFavorite } from "../../context/FavoriteContext";
 
 type FavoriteButtonProps = {

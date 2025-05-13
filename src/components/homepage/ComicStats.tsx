@@ -1,4 +1,4 @@
-import { useRating } from "../../context/RatingContext";
+import { useRating } from "../../context/ratingContext";
 import { useFavorite } from "../../context/FavoriteContext";
 
 export default function ComicStats() {

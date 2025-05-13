@@ -1,5 +1,5 @@
 import { createContext, useReducer, useContext, ReactNode } from "react";
-import { RatingItem } from "../types/contextTypes";
+import { RatingItem } from "../types/comicApiType";
 
 interface RatingState {
     ratings: RatingItem[];

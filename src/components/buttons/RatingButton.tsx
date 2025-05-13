@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { RatingItem } from "../../types/contextTypes";
-import { useRating } from "../../context/RatingContext";
+import { RatingItem } from "../../types/comicApiType";
+import { useRating } from "../../context/ratingContext";
 
 interface Props {
     item: Omit<RatingItem, "rating">;

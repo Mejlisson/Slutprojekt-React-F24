@@ -1,5 +1,5 @@
 import { createContext, useReducer, useContext, ReactNode } from 'react';
-import { FavoriteItem, FavoriteState, FavoriteAction } from '../types/contextTypes';
+import { FavoriteItem, FavoriteState, FavoriteAction } from '../types/comicApiType';
 
 const initialState: FavoriteState = {
     favorites: [],
