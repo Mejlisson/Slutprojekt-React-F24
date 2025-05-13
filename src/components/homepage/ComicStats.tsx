@@ -17,7 +17,7 @@ export default function ComicStats() {
     return (
         <section className="my-12 px-4">
             <div className="bg-gray-300 border-4 border-black shadow-[4px_6px_0px_black] p-6 max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-6 relative">
-                {/* Puls-anim bild */}
+                {/* bild */}
                 <img
                     src="/stats.png"
                     alt="Comic Stats"

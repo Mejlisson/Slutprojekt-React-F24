@@ -21,4 +21,3 @@ export default function SeeMoreButton({ id, resource }: SeeMoreButtonProps) {
         </button>
     );
 }
-//navigera till /details,den tar emot id och resource som props.

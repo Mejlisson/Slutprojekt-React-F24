@@ -50,7 +50,7 @@ export default function PopularMovie() {
                     <img src="/right.png" alt="Scroll Right" className="w-8 h-8" />
                 </button>
 
-                {/* Scrollable card list */}
+                {/* Scrollable card */}
                 <div
                     ref={scrollRef}
                     className="flex overflow-x-auto space-x-5 pb-2 px-10"

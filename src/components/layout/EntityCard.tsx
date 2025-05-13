@@ -71,7 +71,7 @@ export default function EntityCard({ item, type, onRemove }: Props) {
                     )}
                 </div>
 
-                {/* Back (flipped card, only for rating) */}
+                {/* Back (flipped card, bara for rating) */}
                 {type === "rating" && (
                     <div
                         className="absolute inset-0 bg-yellow-100 border-4 border-black shadow-[4px_4px_0px_black] p-4 text-left [transform:rotateY(180deg)] [backface-visibility:hidden]"

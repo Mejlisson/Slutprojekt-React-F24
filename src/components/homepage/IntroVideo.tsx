@@ -29,7 +29,7 @@ export default function IntroVideo() {
                 className="w-full h-full object-cover"
             />
 
-            {/* Skip-knappe */}
+            {/* Skip-knapp */}
             {showFull && (
                 <button
                     onClick={handleSkipIntro}
@@ -41,5 +41,3 @@ export default function IntroVideo() {
         </div>
     );
 }
-//useEffect för att stänga av videon efter 5 sekunder.
-//useState för att hantera visning av videon.

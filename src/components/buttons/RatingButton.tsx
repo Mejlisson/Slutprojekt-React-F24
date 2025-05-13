@@ -45,6 +45,3 @@ export default function RatingButton({ item, value, onRate }: Props) {
         </div>
     );
 }
-// denna komponent är en rating knapp som visar stjärnor för att betygsätta ett objekt.
-// den tar emot en RatingItem som är ett objekt med id och title, en value (betyget) och onRate funktion som anropas när användaren klickar på en stjärnor.
-// useRating hooken används för att hämta state och dispatch funktionen.

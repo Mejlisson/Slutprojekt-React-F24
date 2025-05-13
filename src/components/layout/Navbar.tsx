@@ -79,7 +79,7 @@ export default function Navbar() {
                         onMouseLeave={() => {
                             const timeout = setTimeout(() => {
                                 setShowOptions(false);
-                            }, 300);
+                            }, 300);// 300ms delay before hiding
                             setHoverTimeout(timeout);
                         }}
                     >

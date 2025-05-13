@@ -22,7 +22,3 @@ export async function fetchDetail(resourceType: string, id: string): Promise<Com
     }
     return data.results;
 }
-//Här hämtar jag detailData från API:et.
-// Jag använder en funktion som tar emot resourceType och id som argument.
-// Denna funktion bygger upp URL:en för att hämta data från API:et baserat på resourceType och id.
-// Jag använder sedan fetch för att hämta datan och returnerar den i slutet av funktionen.
