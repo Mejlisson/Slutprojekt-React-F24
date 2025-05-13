@@ -54,6 +54,7 @@ src/
 ## Getting Started
 
 ### 1.Clone the repo
+```https://github.com/Mejlisson/Slutprojekt-React-F24.git```
 ### 2. Install dependencies
 ```npm install```
 ### 3. Create a .env file and add your Comic Vine API key
